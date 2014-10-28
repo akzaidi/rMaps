@@ -40,7 +40,7 @@ processChoroData <- function(x, data, pal, map = 'usa', ...){
 #' 
 #' 
 #' 
-ichoropleth <- function(x, data, pal = "Blues", ncuts = 5, animate = NULL, play = F, map = 'usa', legend = TRUE, labels = TRUE, ...){
+ichoropleth <- function(x, data, pal = "Blues", ncuts = 5, animate = NULL, play = F, map = 'usa', legend = TRUE, man.labels = NULL, labels = TRUE, ...){
   d <- Datamaps$new()
   fml = lattice::latticeParseFormula(x, data = data)
   data = transform(data, 
@@ -51,6 +51,7 @@ ichoropleth <- function(x, data, pal = "Blues", ncuts = 5, animate = NULL, play 
       include.lowest = TRUE
     )
   )
+  if (length(man.labels) > 0) levels(data$fillKey) <- man.labels
   fillColors = brewer.pal(ncuts, pal)
   d$set(
     scope = map, 

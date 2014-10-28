@@ -55,7 +55,7 @@ ichoropleth <- function(x, data, pal = "Blues", ncuts = 5, animate = NULL, play 
   fillColors = brewer.pal(ncuts, pal)
   d$set(
     scope = map, 
-    fills = as.list(setNames(fillColors, man.labels)), 
+    fills = as.list(setNames(fillColors, fill.labels)), 
     legend = legend,
     labels = labels,
     ...
